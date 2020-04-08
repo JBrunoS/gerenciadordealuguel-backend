@@ -4,9 +4,9 @@ require('dotenv').config();
 module.exports = {
 
   development: {
-    client: 'pg',
+    client: 'sqlite3',
     connection: {
-      filename: './src/database/db.pg'
+      filename: './src/database/db.sqlite3'
     },
     migrations: {
       directory: './src/database/migrations'
@@ -15,7 +15,7 @@ module.exports = {
   },
 
   staging: {
-    client: 'pg',
+    client: 'postgresql',
     connection: process.env.DB_URL,
     migrations: {
       directory: './src/database/migrations'
@@ -23,7 +23,7 @@ module.exports = {
   },
 
   production: {
-    client: 'pg',
+    client: 'postgresql',
     connection: process.env.DB_URL,
     migrations: {
       directory: './src/database/migrations'
