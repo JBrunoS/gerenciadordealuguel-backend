@@ -4,7 +4,7 @@ const cors = require('cors')
 
 const app = express();
 
-app.use(cors( 'https://gerenciador-aluguel-front.herokuapp.com/' ))
+app.use(cors())
 app.use(express.json())
 app.use(routes);
 
