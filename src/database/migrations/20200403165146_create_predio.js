@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-    return knex.schema.createTable('predio', function (table) {
+    return knex.schema.createTable('predios', function (table) {
         table.increments();
         table.string('endereco');
         table.string('qtd_quartos');

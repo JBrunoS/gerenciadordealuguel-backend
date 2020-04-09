@@ -11,9 +11,9 @@ exports.up = function(knex) {
         table.integer('vencimento_aluguel').notNullable();;
         table.integer('numero_quarto').notNullable();
         table.string('tipo');
-        table.integer('predio_id');
+        table.string('predio_id');
 
-        table.foreign('predio_id').references('predio.id') 
+        table.foreign('predio_id').references('predios.id') 
       })
 };
 
