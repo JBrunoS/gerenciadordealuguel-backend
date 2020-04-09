@@ -13,7 +13,7 @@ exports.up = function(knex) {
         table.string('tipo');
         table.integer('predio_id');
 
-        table.foreign('predio_id').references('predios.id') 
+        table.foreign('predio_id').references('predio.id') 
       })
 };
 
