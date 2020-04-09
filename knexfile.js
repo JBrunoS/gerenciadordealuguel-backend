@@ -24,7 +24,7 @@ module.exports = {
 
   production: {
     client: 'pg',
-    connection: process.env.DATABASE_URL,
+    connection: process.env.DATABASE_URL || 'postegres://ghqjpsnluivsio:1619c251e46c4fbd8524a9ecbc917ec24cc111e2e62acbe8ec07e64f35d353ea@heroku-app/d6bffstktaac2k',
     pool: {
       min: 2,
       max: 10
