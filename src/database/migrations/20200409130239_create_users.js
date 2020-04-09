@@ -8,12 +8,12 @@ exports.up = function(knex) {
         table.string('RG').notNullable();;
         table.string('CPF').notNullable();;
         table.string('telefone_emprego').notNullable();;
-        table.int('vencimento_aluguel').notNullable();;
-        table.int('numero_quarto').notNullable();
+        table.integer('vencimento_aluguel').notNullable();;
+        table.integer('numero_quarto').notNullable();
         table.string('tipo');
-        table.int('predio_id');
+        table.integer('predio_id');
 
-        table.foreign('predio_id').references('predios').inTable('predios');
+        table.foreign('predio_id').references('predios.id') 
       })
 };
 
