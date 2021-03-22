@@ -10,8 +10,6 @@ module.exports = {
     async create(request, response){
         const {endereco, qtd_quartos} = request.body;
 
-        console.log({endereco});
-
         await connection('predios').insert({
             endereco,
             qtd_quartos,

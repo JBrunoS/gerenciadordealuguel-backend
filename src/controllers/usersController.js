@@ -7,7 +7,7 @@ module.exports = {
         const users = await connection('users')
         .where('predio_id', predio_id)
         .select('*')
-        .orderBy('numero_quarto');
+        .orderBy('vencimento_aluguel');
 
         return response.json(users);
     },
@@ -62,16 +62,23 @@ module.exports = {
         const { id } = request.params;
         const predio_id = request.headers.authorization;
 
+        console.log(predio_id)
+
         const users = await connection('users')
-        .where('id', id)
-        .select('predio_id')
+        .where({
+            'id': id,
+            'predio_id': predio_id
+        })
+        .select('*')
         .first();
 
-        if (users.predio_id != predio_id) {
+        if (!users) {
             return response.status(401).json({ error: 'Deu merda, hein!' })
         }
-
+        
+        await connection('payment').where('user_id', id).delete();
         await connection('users').where('id', id).delete();
+        
 
         return response.status(204).send();
     },
